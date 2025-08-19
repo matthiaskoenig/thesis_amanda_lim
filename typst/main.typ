@@ -138,6 +138,10 @@ An overview of the computational model is provided in @model.
 
 = Discussion
 
+Limitations of the model
+
+Limitations of the data
+
 = Outlook
 
 = Supplement
