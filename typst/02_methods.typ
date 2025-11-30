@@ -1,0 +1,25 @@
+= Materials and Method
+Computational modeling developing a PBPK/PD model using ordinary differential equations (ODE) encoded in Systems Biology Markup Language (SBML) @Hucka2019 @Keating2020 an XML-based format for models of biological processes. An extensive literature research was conducted for base characteristics including the absorption distribution metabolism and elimination of hydrochlorothiazide. The initial PBPK model was constructed from literature data and subsequently refined through parameter optimisation using …. Fitting. The detailed input parameters used are provided in …Table X.
+
+== Systematic Literature Research
+A systematic literature review was performed to identify clinical pharmacokinetic and pharmacodynamic data on hydrochlorothiazide (Figure 3). The search conducted in PubMed and PKPDAI on June 12 2024 using the terms hydrochlorothiazide AND pharmacokinetics retrieved studies reporting single- and multiple-dose pharmacokinetixs pharmacodynamic outcomes and population-specific data (renal impairment). Eligible studies included clinical trials in adults that provided plasma concentraion-time profiles dosing information and elimination parameters. Preclinical studies pediatric trials and reports lacking primary pharmacokinetic endpoints were excluded.
+
+== Data Curation
+Pharmacokinetic and pharmacodynamic data from selected studies were curated in the PK-DB database including demographics co-morbidities (renal cardiac and hepatic impairment) dosing co-medications and fasting state. Graphical data were digitized with WebPlotDigitizer @Rohatgi. Values and units were harmonized to the PK-DB data structure @Grzegorzewski2021. Extracted key PK parameters included $C_max$, $t_max$, $t_(1/2)$ and $A U C_(0-#sym.infinity)$.
+
+== Computational Model
+A whole-body PBPK/PD model of hydrochlorothiazide that consists of linked sub-models for intestine kidney liver RAAS and blood pressure system was developed in the Systems Biology Markup Language (SBML) using `sbmlutils` library. Simulations were conducted with `sbmlsim` and `libRoadRunner` and visualizations were generated with `cy3sbml`. The framework encompasses intestinal absorption systemic distribution across body fluid compartments renal and intestinal elimination as well as pharmacodynamic components describing blood pressure regulation ion and fluid transport dynamics in the nephron and the renin-angiotensin-aldosterone system (RAAS).
+
+_Cardiac impairment._
+Cardiac function was adjusted using the parameter `f_cardiac_function` where 1.0 represents normal cardiac output of 4.5 to 6 L. Simulated impairments were scaled to reflect mild (0.75) moderate (0.50) and severe (0.25) reductions in cardiac output. The adjustment affected systemic hemodynamics renal perfusion and downstream clearance processes to capture the impact of congestive heart failure on drug disposition.
+
+_Renal impairment._
+Renal clearance was modulated through the parameter `KI__f_renal_function` with a value of 1.0 indicating normal kidney function of 101 ml/min. Progressive impairment was represented by scaling this factor to 0.69 (mild) 0.32 (moderate) and 0.19 (severe) reflecting reduced glomerular filtration rate consistent with clinical CKD staging: 69.5 mL/min/1.73 m² for mild 32.5 mL/min/1.73 m² for moderate and 19.5 mL/min/1.73 m² for severe dysfunction.
+// @KDIGO https://doi.org/10.1016/j.kint.2023.10.018.
+
+_Hepatic impairment._
+Hepatic function was adjusted using the parameter `f_cirrhosis` with 1.0 representing normal function. Impairment was scaled according to Child–Pugh classifications corresponding to mild (0.40) moderate (0.70) and severe (0.81) reductions in functional capacity. While hydrochlorothiazide undergoes minimal hepatic metabolism hepatic impairment was modeled to capture secondary effects such as altered plasma protein binding hemodynamic changes and potential impacts on renal perfusion (hepatorenal physiology). These mechanisms may indirectly influence drug disposition and diuretic response in patients with cirrhosis or advanced liver disease.
+// Köller A.; Grzegorzewski J.; König M. Physiologically Based Modeling of the Effect of Physiological and Anthropometric Variability on Indocyanine Green Based Liver Function Tests. Frontiers in Physiology 2021 12 757293. https://doi.org/10.3389/fphys.2021.757293.
+
+== Parameter Optimization
+PK and PD parameters were optimized using curated clinical datasets. For the PK model fitted parameters included intestinal absorption distribution and renal elimination rates. PD optimization targeted Emax and EC50 values for urinary sodium chloride excretion tubular fluid volume and blood pressure reduction. Optimization was performed across multiple dose levels under fed and fasted conditions with multiple local optimization runs (n=100) applied sequentially to PK and then PD parameters. Model performance was validated against independent datasets.
