@@ -4,7 +4,7 @@ A total of 24 studies meeting all the inclusion criteria were curated for PBPK/P
 
 #figure(
   image("figures/PRISMA.png", width:80%),
-  caption: [*PRISMA flow diagram of the literature search and study selection process.*]
+  caption: [*PRISMA flow diagram.* The diagram illustrates the systematic literature search and study selection process including the database searches, the number of abstracts screened and the full texts assessed, which resulted in the 24 studies that were included.]
 )
 
 #figure(
@@ -49,24 +49,19 @@ Once the structure of the PBPK/PD model of hydrochlorothiazide is established a 
 
 #figure(
   image("figures/optimization.png"),
-  caption: [Optimization Performance: Parameter optimization convergence (cost vs. optimization step) and Goodness-of-fit (model predictions vs. experimental data)]
+  caption: [*Optimization Performance.* Parameter optimization convergence (cost vs. optimization step) and goodness-of-fit (model predictions vs. experimental data)]
 ) <optimization_pk>
 
 //insert table overview of parameters optimized
 
 == Dose Dependency
-Hydrochlorothiazide doses ranging from 12.5 mg to 200 mg were simulated to evaluate dose-dependent behavior. As shown in @dosedependency_pk hydrochlorothiazide concentration in plasma urine and feces increases with dose. 
-
-AUC and Cmax increase more than proportionally
-with dose.
-Elimination rate constant and half-life unstable. 
-Decreasing half-life in higher doses.
-
-Simulated pharmacokinetic and pharmacodynamic results match the general trends observed in curated dose-dependent clinical studies.
+Hydrochlorothiazide oral doses ranging from 5 mg to 200 mg and intravenous doses from 1 to 35 mg were simulated. The model confirmed dose-dependent behavior of hydrochlorothiazide pharmacokinetic and pharmacodynamic profiles in the simulated doses, as shown in @dosedependency_pk. Simulated hydrochlorothiazide concentration in plasma, urine and feces increases with dose, matching the general trends in observed clinical data from multiple studies, both with single and multiple doses. C#sub[max] and AUC#sub[0-∞] increased more than proportionally
+with dose. Conversely, the half-life and renal elimination rate decreased exponentially with increasing dose. The simulations matched the data from Azumaya et al. (1990) @Azumaya1990, Jordo et al. (1979) @Jordo1979, Patel et al. (1984) @Patel1984, and Beermann et al. (1976) @Beermann1976. Additionally, pharmacodynamic responses are also scaled with the dose,
+showing higher values of maximum diuresis (up to 270 ml/hr for 100 mg dose), sodium and chloride excretion as well as a more significant decrease in systolic and diastolic blood pressure (up to 106 and 70 mmHg respectively) for higher doses.
 
 #figure(
-  image("figures/dose_dependency_pk.png"),
-  caption: [Dose dependency model for pharmacokinetics]
+  image("figures/dose_dependency_pk.png", width:95%),
+  caption: [*Dose dependent pharmacokinetics and pharmacodynamics of hydrochlorothiazide.* *(A)* Hydrochlorothiazide oral dose range (5–200 mg) evaluated in the simulations. *(B)* Simulated PK and PD time-courses for various doses across the dose range. *(C)* Dose dependency relationships for key pharmacokinetic parameters for hydrochlorothiazide. *(D)* Dose dependency relationships for key pharmacodynamic parameters for hydrochlorothiazide. *(E)* Simulated (solid lines) versus observed (symbols with dashed lines) plasma and urine concentration-time profiles of hydrochlorothiazide across various oral doses in selected studies: Azumaya et al. (1990) @Azumaya1990, Jordo et al. (1979) @Jordo1979, Patel et al. (1984) @Patel1984, and Beermann et al. (1976) @Beermann1976. Observed data are presented as mean or mean ± SD where available.]
 ) <dosedependency_pk>
 
 == Renal Impairment
@@ -81,7 +76,7 @@ Simulated pharmacokinetic and pharmacodynamic results match the general trends o
 
 #figure(
   image("figures/renal_impairment.png"),
-  caption: [Renal impairment model]
+  caption: [*Renal impairment model.*]
 ) <renal_impairment_model>
 
 
@@ -96,7 +91,7 @@ Simulated pharmacokinetic and pharmacodynamic results match the general trends o
 
 #figure(
   image("figures/cardiac_impairment.png"),
-  caption: [Cardiac impairment model]
+  caption: [*Cardiac impairment model.*]
 ) <cardiac_impairment_model>
 
 
@@ -111,5 +106,5 @@ Simulated pharmacokinetic and pharmacodynamic results diverge from the general t
 
 #figure(
   image("figures/hepatic_impairment.png"),
-  caption: [Hepatic impairment model]
+  caption: [*Hepatic impairment model.*]
 ) <hepatic_impairment_model>

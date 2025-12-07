@@ -17,7 +17,7 @@ The absorption of HCTZ has been studied using radiolabeled hydrochlorothiazide, 
 #figure(
   image("figures/pharmacokinetics.png", width: 60%),
   caption: [
-    *Pharmacokinetics of hydrochlorothiazide.*
+    *Pharmacokinetics of hydrochlorothiazide.* Administration and absorption, distribution, metabolism, and excretion of hydrochlorothiazide.
 
   ],
 ) <pk>

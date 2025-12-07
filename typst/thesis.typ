@@ -111,6 +111,8 @@
 #pagebreak()
 #include("03_results.typ")
 #pagebreak()
+#include("035_table.typ")
+#pagebreak()
 #include("04_discussion.typ")
 #pagebreak()
 

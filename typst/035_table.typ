@@ -19,6 +19,7 @@
 //stroke: none,
 table.header[Study][PK-DB][Dosing][Dose [mg]][R][H][CI][RI][HI][FA][FD][Pl][Ur][Fe][BP][Diu][Na][Cl][ACE][Ren][Ald][S],
 
+
 [Anderson1961], 
 [#link("https://identifiers.org/pkdb/PKDB01102")[PKDB01102]],
 [single], [50], [p.o.], [#sym.checkmark], [#sym.checkmark], [#sym.checkmark], [#sym.checkmark], [-], [-], [#sym.checkmark], [#sym.checkmark], [-], [-], [-], [-], [-], [-], [-], [-], [@Anderson1961],
@@ -114,7 +115,3 @@ table.header[Study][PK-DB][Dosing][Dose [mg]][R][H][CI][RI][HI][FA][FD][Pl][Ur][
 [#link("https://identifiers.org/pkdb/PKDB01109")[PKDB01109]],
 [single], [50, 100], [p.o.], [#sym.checkmark], [-], [-], [-], [#sym.checkmark], [-], [#sym.checkmark], [#sym.checkmark], [-], [-], [-], [#sym.checkmark], [#sym.checkmark], [-], [-], [-],[@Williams1982],
 )
-
-
-
-#bibliography("thesis.bib")
